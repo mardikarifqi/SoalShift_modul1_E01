@@ -51,6 +51,8 @@ Kelompok E1 Informatika ITS
 - `sort -rn` untuk mengurutkan secara descending hasil yang didapatkan.
 - `NR<=3` untuk menampilkan hasil pada row ke-1,2,3.
 
+Output hasil:
+![](https://github.com/mardikarifqi/SoalShift_modul1_E01/blob/master/img/2.png?raw=true)
 
 ## Soal 3
 
@@ -127,12 +129,13 @@ Jika password yang di generate `genpass` sudah pernah didata, `while` akan men-g
     #!/bin/bash
 
     cat /var/log/syslog | awk 'IGNORECASE=1; /cron/ && !/sudo/' | awk 'NF<13' >> /home/pristiz/modul1/logs
-  
-  - _Command_ `cat /var/log/syslog` untuk mengoutputkan isi file `syslog`.
-  
-  - Output dari _command_ tersebut kemudian di-_pipe_ ke perintah selanjutnya. _Syntax_ `IGNORECASE=1` berfungsi untuk mengabaikan besar-kecil huruf. _Regex_ `/cron/ && !/sudo/` mencocokkan hasil yang mengandung string _cron_, namun tidak mengandung string _sudo_.
-  
-  - Terakhir, hasil dari _command_ sebelumnya dioutputkan yang memiliki kolom kurang dari 13 dan di-_append_ pada file logs.
+
+- _Command_ `cat /var/log/syslog` untuk mengoutputkan isi file `syslog`.
+
+- Output dari _command_ tersebut kemudian di-_pipe_ ke perintah selanjutnya. _Syntax_ `IGNORECASE=1` berfungsi untuk mengabaikan besar-kecil huruf. _Regex_ `/cron/ && !/sudo/` mencocokkan hasil yang mengandung string _cron_, namun tidak mengandung string _sudo_.
+
+- Terakhir, hasil dari _command_ sebelumnya dioutputkan yang memiliki kolom kurang dari 13 dan di-_append_ pada file logs yang terletak di folder modul1. Berikut hasilnya:
+![file logs](https://github.com/mardikarifqi/SoalShift_modul1_E01/blob/master/img/5.png?raw=true)
 
 3. Karena diminta untuk menjalankan perintah pada waktu tertentu, gunakan `crontab`
    ```bash
