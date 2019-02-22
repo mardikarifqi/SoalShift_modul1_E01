@@ -120,8 +120,8 @@ echo $pass > "./password_$num.txt"
 ## Soal 4
 
 - Untuk menjalankan file, gunakan command ini
-  `$ ./soal4.sh /path-to-nature`
-  ![](https://github.com/mardikarifqi/SoalShift_modul1_E01/blob/master/img/4.png?raw=true)
+  `$ ./soal4.sh`
+  ![](https://github.com/mardikarifqi/SoalShift_modul1_E01/blob/master/img/4.jpg)
 
 - Karena diminta untuk menjalankan perintah pada waktu tertentu, gunakan `crontab`
   ```bash
