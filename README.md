@@ -26,6 +26,32 @@ Kelompok E1 Informatika ITS
 
 ## Soal 2
 
+
+- `file=~/modul1/WA_Sales_Products_2012-14.csv` untuk menyimpan _path_ ke file pada variabel `$file`.
+- `mapfile -t [nama variabel]` untuk menyimpan hasil pada _array_.
+- `awk -F ","` untuk mengubah _field separator_ menjadi tanda koma (secara _default_ spasi).
+
+#### a. Negara dengan penjualan(quantity) terbanyak pada tahun 2012
+- `$7==2012` untuk mencocokkan kolom 7 dengan string 2012.
+- `arr[$1]+=$10` untuk menjumlahkan nilai-nilai pada kolom 10 berdasarkan nilai pada kolom 1.
+- `sort -rn` untuk mengurutkan secara descending hasil yang didapatkan.
+- `NR==1` untuk menampilkan hasil pada row ke-1 saja.
+
+#### b. Tiga product line yang memberikan penjualan(quantity) terbanyak pada negara di poin a
+- `awk -v a_1="$a"`untuk mengubah isi dari $a menjadi variabel pada awk.
+- `$1==a_1` untuk mencocokkan kolom 1 dengan hasil dari poin a.
+- `arr[$4]+=$10` untuk menjumlahkan nilai-nilai pada kolom 10 berdasarkan nilai pada kolom 4.
+- `sort -rn` untuk mengurutkan secara descending hasil yang didapatkan.
+- `NR<=3` untuk menampilkan hasil pada row ke-1,2,3.
+
+#### c. Tiga product yang memberikan penjualan(quantity) terbanyak berdasarkan tiga product line pada poin b
+- `awk -v b_1="${b[0]}" -v b_2="${b[1]}" -v b_3="${b[2]}"`untuk mengubah nilai-nilai dari array $b menjadi variabel pada awk.
+- `$4==b_1||$4==b_2||$4==b_3` untuk mencocokkan kolom 4 dengan hasil-hasil dari poin b.
+- `arr[$6]+=$10` untuk menjumlahkan nilai-nilai pada kolom 10 berdasarkan nilai pada kolom 6.
+- `sort -rn` untuk mengurutkan secara descending hasil yang didapatkan.
+- `NR<=3` untuk menampilkan hasil pada row ke-1,2,3.
+
+
 ## Soal 3
 
 ##### Membuat fungsi `genpass` yang digunakan untuk menciptakan password random
@@ -102,11 +128,11 @@ Jika password yang di generate `genpass` sudah pernah didata, `while` akan men-g
 
     cat /var/log/syslog | awk 'IGNORECASE=1; /cron/ && !/sudo/' | awk 'NF<13' >> /home/pristiz/modul1/logs
   
-  _Command_ `cat /var/log/syslog` untuk mengoutputkan isi file `syslog`.
+#### _Command_ `cat /var/log/syslog` untuk mengoutputkan isi file `syslog`.
   
-  Output dari _command_ tersebut kemudian di-_pipe_ ke perintah selanjutnya, yaitu`awk 'IGNORECASE=1; /cron/ && !/sudo/'`. _Syntax_ `IGNORECASE=1` berfungsi untuk mengabaikan besar-kecil huruf. _Regex_ `/cron/ && !/sudo/` mencocokkan hasil yang mengandung string _cron_, namun tidak mengandung string _sudo_.
+#### Output dari _command_ tersebut kemudian di-_pipe_ ke perintah selanjutnya, yaitu`awk 'IGNORECASE=1; /cron/ && !/sudo/'`. _Syntax_ `IGNORECASE=1` berfungsi untuk mengabaikan besar-kecil huruf. _Regex_ `/cron/ && !/sudo/` mencocokkan hasil yang mengandung string _cron_, namun tidak mengandung string _sudo_.
   
-  Terakhir, hasil dari _command_ sebelumnya dioutputkan yang memiliki kolom kurang dari 13 dan di-_append_ pada file logs.
+#### Terakhir, hasil dari _command_ sebelumnya dioutputkan yang memiliki kolom kurang dari 13 dan di-_append_ pada file logs.
 
 3. Karena diminta untuk menjalankan perintah pada waktu tertentu, gunakan `crontab`
    ```bash
