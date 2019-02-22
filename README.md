@@ -5,7 +5,7 @@ Kelompok E1 Informatika ITS
 
 1. Lakukan `$unzip nature.zip` untuk mengekstrak arsip
     ![Extracting zip](https://github.com/mardikarifqi/SoalShift_modul1_E01/blob/master/img/1a.png?raw=true)
-2. Membuat file bash `decrypt.sh` dengan kode sebagai berikut
+2. Membuat file bash `soal1.sh` dengan kode sebagai berikut
    ```bash
     #!/bin/bash
     cd $1 
@@ -17,12 +17,12 @@ Kelompok E1 Informatika ITS
         mv "$files"_aa.jpg "$files"
     done
 3. Untuk menjalankan file tersebut, gunakan command ini
-    `$ ./decrypt.sh /path-to-nature`
+    `$ ./soal1.sh /path-to-nature`
     ![](https://github.com/mardikarifqi/SoalShift_modul1_E01/blob/master/img/1b.png?raw=true)
 4. Karena diminta untuk mendekripsi pada waktu tertentu, gunakan `crontab`
    ```bash
-   14 14 14 2 * /mnt/e/sisop/decrypt
-   14 14 * 2 FRI /mnt/e/sisop/decrypt
+   14 14 14 2 * /bin/bash ~/modul1/soal1.sh
+   14 14 * 2 FRI /bin/bash ~/modul1/soal1.sh
 
 ## Soal 2
 
