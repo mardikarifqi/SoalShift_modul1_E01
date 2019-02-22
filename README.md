@@ -26,7 +26,6 @@ Kelompok E1 Informatika ITS
 
 ## Soal 2
 
-
 - `file=~/modul1/WA_Sales_Products_2012-14.csv` untuk menyimpan _path_ ke file pada variabel `$file`.
 - `mapfile -t [nama variabel]` untuk menyimpan hasil pada _array_.
 - `awk -F ","` untuk mengubah _field separator_ menjadi tanda koma (secara _default_ spasi).
@@ -120,6 +119,7 @@ echo $pass > "./password_$num.txt"
 
 ## Soal 4
 
+![file logs](https://github.com/mardikarifqi/SoalShift_modul1_E01/blob/master/img/4.png?raw=true)
 
 ## Soal 5
 
