@@ -52,6 +52,7 @@ Kelompok E1 Informatika ITS
 - `NR<=3` untuk menampilkan hasil pada row ke-1,2,3.
 
 Output hasil:
+
 ![](https://github.com/mardikarifqi/SoalShift_modul1_E01/blob/master/img/2.png?raw=true)
 
 ## Soal 3
