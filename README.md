@@ -119,7 +119,13 @@ echo $pass > "./password_$num.txt"
 
 ## Soal 4
 
-![file logs](https://github.com/mardikarifqi/SoalShift_modul1_E01/blob/master/img/4.png?raw=true)
+- Untuk menjalankan file, gunakan command ini
+  `$ ./soal4.sh /path-to-nature`
+  ![](https://github.com/mardikarifqi/SoalShift_modul1_E01/blob/master/img/4.png?raw=true)
+
+- Karena diminta untuk menjalankan perintah pada waktu tertentu, gunakan `crontab`
+  ```bash
+  0 0-23 * * * /bin/bash /mnt/e/sisop/soal4.sh
 
 ## Soal 5
 
