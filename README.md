@@ -26,7 +26,6 @@ Kelompok E1 Informatika ITS
 
 ## Soal 2
 
-
 - `file=~/modul1/WA_Sales_Products_2012-14.csv` untuk menyimpan _path_ ke file pada variabel `$file`.
 - `mapfile -t [nama variabel]` untuk menyimpan hasil pada _array_.
 - `awk -F ","` untuk mengubah _field separator_ menjadi tanda koma (secara _default_ spasi).
@@ -52,6 +51,7 @@ Kelompok E1 Informatika ITS
 - `NR<=3` untuk menampilkan hasil pada row ke-1,2,3.
 
 Output hasil:
+
 ![](https://github.com/mardikarifqi/SoalShift_modul1_E01/blob/master/img/2.png?raw=true)
 
 ## Soal 3
@@ -65,58 +65,67 @@ Fungsi ini mengambil data random dari `/dev/urandom` yang di pipe ke `tr` untuk 
 ##### Terakhir, generate dan echo passwordnya
 Jika password yang di generate `genpass` sudah pernah didata, `while` akan men-generate password baru dan menulisnya di file dengan command `echo`
 
-    ```bash
-    #!/bin/bash
-	arr=()
-	num=1
-	keepadd=1
-	pass=""
+```bash
+#!/bin/bash
+arr=()
+num=1
+keepadd=1
+pass=""
+passf=0
+
+#Randomizing password 12 char a-ZA-Z0-9
+function genpass () {
+	pass=`head /dev/urandom | tr -dc A-Za-z0-9 | head -c 12`
+}
+
+#Check element in array
+function ce () {
 	passf=0
-
-	#Randomizing password 12 char a-ZA-Z0-9
-	function genpass () {
-		pass=`head /dev/urandom | tr -dc A-Za-z0-9 | head -c 12`
-	}
-
-	#Check element in array
-	function ce () {
-		passf=0
-		for e in ${arr[@]}
-		do
-			if [ "$pass" -eq "$e" ]
-			then
-				passf=1
-				break
-			fi
-		done
-	}
-
-	#Checking password to array
-	for files in ./password_*.txt; do
-		array+=(`cat $files`)
-		if [ $keepadd -eq 1 ]
+	for e in ${arr[@]}
+	do
+		if [ "$pass" -eq "$e" ]
 		then
-			if [ "$files" != "./password_$num.txt" ]
-			then
-				keepadd=0
-				break
-			fi
-		fi
-		num=$((num + 1))
-	done
-
-	while [ 1 -eq 1 ]; do
-		genpass
-		ce
-		if [ $passf == 0 ]
-		then
+			passf=1
 			break
 		fi
 	done
+}
 
-    echo $pass > "./password_$num.txt"
+#Checking password to array
+for files in ./password_*.txt; do
+	array+=(`cat $files`)
+	if [ $keepadd -eq 1 ]
+	then
+		if [ "$files" != "./password_$num.txt" ]
+		then
+			keepadd=0
+			break
+		fi
+	fi
+	num=$((num + 1))
+done
+
+while [ 1 -eq 1 ]; do
+	genpass
+	ce
+	if [ $passf == 0 ]
+	then
+		break
+	fi
+done
+
+echo $pass > "./password_$num.txt"
+```
 
 ## Soal 4
+
+- Untuk menjalankan file, gunakan command ini
+  `$ ./soal4.sh`
+  ![](https://github.com/mardikarifqi/SoalShift_modul1_E01/blob/master/img/4.jpg)
+
+- Karena diminta untuk menjalankan perintah pada waktu tertentu, gunakan `crontab`
+  ```bash
+  0 0-23 * * * /bin/bash /mnt/e/sisop/soal4.sh
 
 ## Soal 5
 
