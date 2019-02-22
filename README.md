@@ -125,7 +125,7 @@ echo $pass > "./password_$num.txt"
   - `$str=$1` untuk membaca string dari file.
   - loop `for l in {0..25}` untuk mengubah tiap karakter `$l` dari `$str`.
   - hasil konversi `$str` kemudian di-_pipe_ ke _command_ `tr ${tr_regex[$2]}` untuk diubah.
-- Selanjutnya, membaca file syslog per baris. Lalu, memasukkan baris tersebut dan jam saat ini sebagai parameter fungsi `encode()`. Terakhir, _append_ hasilnya ke file .txt.
+- Selanjutnya, membaca file syslog per baris. Lalu, memasukkan baris tersebut dan jam saat ini sebagai parameter fungsi `encode()`. Terakhir, _append_ hasilnya ke file .txt sesuai dengan nama pada `$et`.
   ```bash
   FILE=/var/log/syslog
   while read LINE; do
@@ -141,6 +141,7 @@ echo $pass > "./password_$num.txt"
     ```bash
     0 0-23 * * * /bin/bash /mnt/e/sisop/soal4.sh
 
+- Pada file `soal4_dekripsi.sh`, ditambahkan _command_ `hour=$(( 26 - $hour ))` untuk mengembalikan karakter terenkripsi ke asalnya.
 
 #### Untuk menjalankan file dekripsi, gunakan command ini
   `$ ./soal4_dekripsi.sh`
