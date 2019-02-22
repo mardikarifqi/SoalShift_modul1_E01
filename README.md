@@ -119,13 +119,32 @@ echo $pass > "./password_$num.txt"
 
 ## Soal 4
 
-- Untuk menjalankan file, gunakan command ini
+- `et=$(date +'%R %d-%m-%Y')` untuk format nama file sesuai pada soal.
+- `hour=$(date +'%H')` untuk menunjukkan jam saat ini.
+- Fungsi `encode()` untuk membaca string dari file dan menambahkan tiap karakternya sesuai dengan jam saat ini:
+  - `$str=$1` untuk membaca string dari file.
+  - loop `for l in {0..25}` untuk mengubah tiap karakter `$l` dari `$str`.
+  - hasil konversi `$str` kemudian di-_pipe_ ke _command_ `tr ${tr_regex[$2]}` untuk diubah.
+- Selanjutnya, membaca file syslog per baris. Lalu, memasukkan baris tersebut dan jam saat ini sebagai parameter fungsi `encode()`. Terakhir, _append_ hasilnya ke file .txt.
+  ```bash
+  FILE=/var/log/syslog
+  while read LINE; do
+	encode "$LINE" "$hour"
+	echo "$returnenc" >> ./"$et".txt
+  done < $FILE
+
+#### Untuk menjalankan file enkripsi, gunakan command ini
   `$ ./soal4.sh`
   ![](https://github.com/mardikarifqi/SoalShift_modul1_E01/blob/master/img/4.jpg)
 
-- Karena diminta untuk menjalankan perintah pada waktu tertentu, gunakan `crontab`
-  ```bash
-  0 0-23 * * * /bin/bash /mnt/e/sisop/soal4.sh
+#### Karena diminta untuk menjalankan perintah pada waktu tertentu, gunakan `crontab`
+    ```bash
+    0 0-23 * * * /bin/bash /mnt/e/sisop/soal4.sh
+
+
+#### Untuk menjalankan file dekripsi, gunakan command ini
+  `$ ./soal4_dekripsi.sh`
+  ![](https://github.com/mardikarifqi/SoalShift_modul1_E01/blob/master/img/4_dekripsi.jpg)
 
 ## Soal 5
 
