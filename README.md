@@ -21,8 +21,8 @@ Kelompok E1 Informatika ITS
     ![](https://github.com/mardikarifqi/SoalShift_modul1_E01/blob/master/img/1b.png?raw=true)
 4. Karena diminta untuk mendekripsi pada waktu tertentu, gunakan `crontab`
    ```bash
-   14 14 14 2 * /bin/bash ~/modul1/soal1.sh
-   14 14 * 2 FRI /bin/bash ~/modul1/soal1.sh
+   14 14 14 2 * /bin/bash /mnt/e/sisop/soal1.sh
+   14 14 * 2 FRI /bin/bash /mnt/e/sisop/soal1.sh
 
 ## Soal 2
 
