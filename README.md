@@ -108,6 +108,6 @@ Jika password yang di generate `genpass` sudah pernah didata, `while` akan men-g
   
   Terakhir, hasil dari _command_ sebelumnya dioutputkan yang memiliki kolom kurang dari 13 dan di-_append_ pada file logs.
 
-3. Konfigurasi untuk `crontab`
+3. Karena diminta untuk menjalankan perintah pada waktu tertentu, gunakan `crontab`
    ```bash
-   2-30/6 * * * * /bin/bash ~/modul1/soal5.sh# Soal 5
+   2-30/6 * * * * /bin/bash ~/modul1/soal5.sh
