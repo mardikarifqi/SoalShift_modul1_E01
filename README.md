@@ -101,8 +101,11 @@ Jika password yang di generate `genpass` sudah pernah didata, `while` akan men-g
     #!/bin/bash
 
     cat /var/log/syslog | awk 'IGNORECASE=1; /cron/ && !/sudo/' | awk 'NF<13' >> /home/pristiz/modul1/logs
+  
   _Command_ `cat /var/log/syslog` untuk mengoutputkan isi file `syslog`.
+  
   Output dari _command_ tersebut kemudian di-_pipe_ ke perintah selanjutnya, yaitu`awk 'tolower($0) ~ /cron/ && tolower($0) ~ !/sudo/'`. _Syntax_ `IGNORECASE=1` berfungsi untuk mengabaikan besar-kecil huruf. _Regex_ `/cron/ && !/sudo/` mencocokkan hasil yang mengandung string _cron_, namun tidak mengandung string _sudo_.
+  
   Terakhir, hasil dari _command_ sebelumnya dioutputkan yang memiliki kolom kurang dari 13 dan di-_append_ pada file logs.
 
 3. Konfigurasi untuk `crontab`
