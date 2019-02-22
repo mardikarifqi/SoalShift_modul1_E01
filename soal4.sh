@@ -7,7 +7,6 @@ encode() {
 	str=$1
 	lettersL=( {a..z} )
 	lettersC=( {A..Z} )
-	#echo "${letters_array[*]}"
 
 	for l in {0..25}; do
 		tr_regex[$l]="A-Za-z "${lettersC[$l]}"-ZA-"${lettersC[$l-1]}""${lettersL[$l]}"-za-"${lettersL[$l-1]};
