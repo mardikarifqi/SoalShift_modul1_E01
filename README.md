@@ -139,7 +139,7 @@ echo $pass > "./password_$num.txt"
 
 #### Karena diminta untuk menjalankan perintah pada waktu tertentu, gunakan `crontab`
     ```bash
-    0 0-23 * * * /bin/bash /mnt/e/sisop/soal4.sh
+    0 * * * * /bin/bash /mnt/e/sisop/soal4.sh
 
 - Pada file `soal4_dekripsi.sh`, ditambahkan _command_ `hour=$(( 26 - $hour ))` untuk mengembalikan karakter terenkripsi ke asalnya.
 
